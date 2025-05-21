@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello-world
+  namespace: default
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/smutoni2022/helm-hello-world.git
+    targetRevision: HEAD
+    path: charts/hello-world
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
